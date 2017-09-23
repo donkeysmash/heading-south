@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import TrainInfo from '../components/TrainInfo';
+import TrainSchedule from '../components/TrainSchedule';
 import { loadStationRequest } from '../redux/actions';
 
 class TrainInfoContainer extends Component {
@@ -22,11 +22,10 @@ class TrainInfoContainer extends Component {
   render() {
     const {refresh} = this.props;
     const name = this.props.match.params.name;
-    debugger;
     return (
       <div>
         <Link to='/'>Home</Link>
-        <TrainInfo name={name} />
+        <TrainSchedule name={name} />
         <button onClick={this.handleRefreshClick}>refresh</button>
       </div>
     );
