@@ -15,10 +15,18 @@ const station = (state = {}, action) => {
         success: undefined
       };
     case STATION_LOAD_SUCCESS:
+      const { name, time, uri } = action.data;
       return {
         ...state,
         requesting: false,
-        success: true
+        success: true,
+        name, time, uri,
+        stops : action.data.stops.reduce(
+          (acc, eachStop) => {
+            if (eachStop.routes && eachStop.routes.length)
+              acc[eachStop.uri] = eachStop;
+          	return acc;
+          }, {})
       }
     case STATION_LOAD_ERROR:
       return {
@@ -44,6 +52,4 @@ const stations = (state = {}, action) => {
   }
 }
 
-export default combineReducers({
-  stations
-});
+export default stations;
