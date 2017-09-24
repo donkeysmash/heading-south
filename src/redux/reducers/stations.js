@@ -6,6 +6,14 @@ const {
   STATION_LOAD_ERROR
 } = actions;
 
+const filterStops = stops =>
+  stops.reduce((acc, eachStop) => {
+    if (eachStop.routes && eachStop.routes.length)
+      acc[eachStop.uri] = eachStop;
+    return acc
+  }, {})
+
+
 const station = (state = {}, action) => {
   switch(action.type) {
     case STATION_LOAD_REQUEST:
@@ -15,18 +23,13 @@ const station = (state = {}, action) => {
         success: undefined
       };
     case STATION_LOAD_SUCCESS:
-      const { name, time, uri } = action.data;
+      const { stops, name, time, uri } = action.data;
       return {
         ...state,
         requesting: false,
         success: true,
         name, time, uri,
-        stops : action.data.stops.reduce(
-          (acc, eachStop) => {
-            if (eachStop.routes && eachStop.routes.length)
-              acc[eachStop.uri] = eachStop;
-          	return acc;
-          }, {})
+        stops : filterStops(stops)
       }
     case STATION_LOAD_ERROR:
       return {

@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import RouteItem from './RouteItem';
 
-class StopItem extends Component {
-  render() {
-    console.log(this.props);
-    return (
-      <p> {this.props.name} </p>
-    );
-  }
-}
-
-// const StopItem = ({ name, uri, routes, parentPath }) => (
-//   <div>
-//     <Link to={`${parentPath}/${uri}`}>{name}</Link>
-//   </div>
-// );
+const StopItem = ({name, routes}) =>  (
+  <div>
+    <p>{'stop name : ' + name}</p>
+    {routes.map((route, key) => <RouteItem key={key} route={route} />)}
+  </div>
+);
 
 export default StopItem;
