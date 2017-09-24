@@ -7,6 +7,8 @@ class Home extends Component {
     return (
       <div>
         <Link to='sheppard-yonge_station'>Sheppard-Yonge Station</Link>
+        {' '}
+        <Link to='finch_station'>Finch Station</Link>
       </div>
     );
   }

@@ -1,5 +1,5 @@
-import response from './db';
+import fetchJsonp from 'fetch-jsonp';
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-export const fetchStationInfo = name => delay(500).then(() => response);
+export const fetchStationInfo = name => {
+  return fetchJsonp(`http://myttc.ca/${name}.json`).then(response => response.json());
+};

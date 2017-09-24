@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import TrainSchedule from '../components/TrainSchedule';
 import { loadStationRequest } from '../redux/actions';
 
-class TrainInfoContainer extends Component {
+class StationInfoContainer extends Component {
   constructor(props) {
     super(props);
     this.handleRefreshClick = this.handleRefreshClick.bind(this);
@@ -20,7 +20,6 @@ class TrainInfoContainer extends Component {
   }
 
   render() {
-    const {refresh} = this.props;
     const name = this.props.match.params.name;
     return (
       <div>
@@ -32,8 +31,8 @@ class TrainInfoContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  stations: state.staions
+const mapStateToProps = ({ stations }) => ({
+  stations
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -43,4 +42,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TrainInfoContainer);
+)(StationInfoContainer);
