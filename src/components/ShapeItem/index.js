@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import './style.css';
 
 class ShapeItem extends Component {
   render() {

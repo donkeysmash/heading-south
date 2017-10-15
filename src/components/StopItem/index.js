@@ -1,5 +1,6 @@
 import React from 'react';
-import RouteItem from './RouteItem';
+import RouteItem from '../RouteItem';
+import './style.css';
 
 const StopItem = ({name, routes}) =>  (
   <div>

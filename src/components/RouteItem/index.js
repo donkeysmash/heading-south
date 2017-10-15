@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import ShapeItem from './ShapeItem';
+import ShapeItem from '../ShapeItem';
+import './style.css';
 
 class RouteItem extends Component {
   render() {

@@ -2,7 +2,6 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import StopItem from '../components/StopItem';
 import { loadStationRequest } from '../redux/actions';
 
@@ -13,7 +12,15 @@ class StationInfoContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.refresh(this.props.match.params.name);
+    const name = this.props.match.params.name;
+    if (!this.props.stations[name])
+      this.props.refresh(name);
+  }
+
+  componentWillUpdate(props) {
+    const name = props.match.params.name;
+    if (!props.stations[name])
+      props.refresh(name);
   }
 
   handleRefreshClick() {
@@ -29,13 +36,10 @@ class StationInfoContainer extends Component {
     if (!success) return ( <h2>Loading failed :(</h2> );
     return (
       <div>
-        <Link to='/'>Home</Link>
         {_.map(station.stops, (stop, key) => (
           <StopItem
-            // parentPath={this.props.match.url}
             key={key}
             name={stop.name}
-            // uri={stop.uri}
             routes={stop.routes} />
         ))}
         <button onClick={this.handleRefreshClick}>refresh</button>

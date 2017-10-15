@@ -47,6 +47,7 @@ const stations = (state = {}, action) => {
     case STATION_LOAD_SUCCESS:
     case STATION_LOAD_ERROR:
       return {
+        ...state,
         [action.uri]: station(state[action.uri], action)
       };
     default:
