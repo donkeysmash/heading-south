@@ -8,8 +8,8 @@ class RouteItem extends Component {
     const { route } = this.props;
     const shapes = _.groupBy(route.stop_times, stop_time => stop_time.shape);
     return (
-      <div>
-        <p>{route.name}</p>
+      <div className="route-item">
+        <p className="route-name">{route.name}</p>
         {_.map(shapes, (stopTimes, key) =>
           <ShapeItem key={key} shapeName={key} stopTimes={stopTimes} />
         )}

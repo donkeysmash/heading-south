@@ -37,10 +37,12 @@ class StationInfoContainer extends Component {
     return (
       <div>
         {_.map(station.stops, (stop, key) => (
-          <StopItem
-            key={key}
-            name={stop.name}
-            routes={stop.routes} />
+          <div key={key}>
+            <StopItem
+              name={stop.name}
+              routes={stop.routes} />
+            <hr />
+          </div>
         ))}
         <button onClick={this.handleRefreshClick}>refresh</button>
       </div>

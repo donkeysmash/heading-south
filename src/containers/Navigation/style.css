@@ -37,6 +37,7 @@ li {
 .dropdown-content .link-component {
   display: block;
   color: black;
+  padding: 12px 14px;
 }
 
 .dropdown-content .link-component:hover {background-color: #128CC0;}

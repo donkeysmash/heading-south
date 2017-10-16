@@ -1,0 +1,25 @@
+.shape-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shape-name {
+  display: inline-flex;
+}
+
+.departure-times {
+  display: inline-flex;
+}
+
+.departure-time {
+  margin-left: 8px;
+}
+
+.line-number {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.line-name {
+  color: grey;
+}

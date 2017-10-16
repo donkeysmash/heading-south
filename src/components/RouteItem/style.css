@@ -1,0 +1,7 @@
+.route-name {
+  font-size: 20px;
+}
+
+div.route-item > div.shape-item:nth-of-type(odd) {
+  background-color: rgb(233, 255, 255);
+}

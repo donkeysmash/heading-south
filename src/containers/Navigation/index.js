@@ -10,11 +10,12 @@ class Navigation extends Component {
           <Link className="link-component" to='/'>Home</Link>
         </li>
         <li className="nav-item dropdown">
-          <div  >Stations</div>
+          <div>Stations</div>
           <div className="dropdown-content">
             <Link className="link-component" to="sheppard-yonge_station">Sheppard-Yonge Station</Link>
             <Link className="link-component" to="finch_station">Finch Station</Link>
             <Link className="link-component" to="union_station">Union Station</Link>
+            <Link className="link-component" to="seneca_college">Seneca</Link>
           </div>
         </li>
       </ul>
